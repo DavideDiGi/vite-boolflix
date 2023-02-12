@@ -3,8 +3,6 @@
 import { store } from './store'
 
 import AppHeader from './components/Header/AppHeader.vue'
-import AppInput from './components/Header/AppInput.vue'
-import AppButton from './components/Header/AppButton.vue'
 import AppMain from './components/Main/AppMain.vue'
 
 export default {
@@ -17,8 +15,6 @@ export default {
   components: {
 
     AppHeader,
-    AppInput,
-    AppButton,
     AppMain,
 
   },
@@ -28,8 +24,6 @@ export default {
 <template>
   <div class="container bg-dark vh-100 p-0">
     <AppHeader />
-    <AppInput />
-    <AppButton />
 
     <AppMain />
   </div>

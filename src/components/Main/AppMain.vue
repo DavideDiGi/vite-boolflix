@@ -1,6 +1,6 @@
 <script>
 import { store } from '../../store';
-import AppCardMovies from './AppCardMovies.vue';
+import AppCard from './AppCard.vue';
 
 export default {
     name: "AppMain",
@@ -10,7 +10,7 @@ export default {
         };
     },
     components: {
-        AppCardMovies,
+        AppCard,
     }
 }
 
@@ -18,7 +18,13 @@ export default {
 
 <template>
     <div class="bg-success">
-        <AppCardMovies />
+
+        <h2>film</h2>
+        <AppCard v-for="movie in store.movies" :element="movie" />
+
+        <h2>serie</h2>
+        <AppCard v-for="serie in store.series" :element="serie" />
+
     </div>
 </template>
 
