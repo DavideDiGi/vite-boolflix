@@ -47,14 +47,30 @@ export default {
 
 <template>
 
-    <header class="w-100 bg-info h-25">
-        <div>
-            <AppSearchBar @textContent="SearchEvent" />
+    <header class="w-100 bg-black d-flex justify-content-between align-items-center">
+
+        <div class="logo w-50">
+            <img class="netflix w-100" src="../../assets/Netflix-logo-red-black-png.png" alt="">
         </div>
+        <AppSearchBar class="me-4" @textContent="SearchEvent" />
+
     </header>
 
 </template>
 
 <style lang="scss" scoped>
+header {
+    height: 70px;
 
+    .logo {
+        height: 100%;
+
+        .netflix {
+            height: 100%;
+            max-width: 20%;
+        }
+
+    }
+
+}
 </style>

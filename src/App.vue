@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <div class="container bg-dark vh-100 p-0">
+  <div class="container bg-secondary vh-100 p-0">
     <AppHeader />
 
     <AppMain />

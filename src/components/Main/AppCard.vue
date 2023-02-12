@@ -70,12 +70,14 @@ export default {
 
 <template>
 
-    <h5><em>Titolo: </em>{{ element.title }} || {{ element.name }} |</h5>
-    <h6><em> Titolo originale: </em>{{ element.original_title }} || {{ element.original_name }} |</h6>
+    <h4><em>Titolo: </em>{{ element.title }} || {{ element.name }} |</h4>
+    <h5><em> Titolo originale: </em>{{ element.original_title }} || {{ element.original_name }} |</h5>
     <img class="poster" :src="urlsAssemble(element.poster_path)" :alt="element.title">
-    <p class="ms-2"><em> Lingua: </em>{{ element.original_language }} </p>
-    <img class="ms-2 flag" :src="generateFlag(element.original_language)" alt="ooo">
-    <div class="ms-3">|<em> Voto: </em>{{ element.vote_average }}</div>
+    <br>
+    <br>
+    <span class="ms-2"><em> Lingua: </em>{{ element.original_language }} </span>
+    <img class="ms-1 flag" :src="generateFlag(element.original_language)" alt="flag">
+    <span><em> Voto: </em></span>
     <span v-for="star in voteChanger()"> &#9733; </span>
     <span v-for="star in (5 - voteChanger())"> &#9734; </span>
 
@@ -92,5 +94,10 @@ em {
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+.poster {
+    width: 100%;
+    // height: 100%;
 }
 </style>

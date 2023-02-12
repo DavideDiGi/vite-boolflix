@@ -20,7 +20,7 @@ export default {
 <template>
 
     <form action="#">
-        <input v-model="store.inputText" type="text">
+        <input v-model="store.inputText" type="text" placeholder="Cosa vuoi guardare?">
         <button @click="$emit('TextContent')">Cerca</button>
     </form>
 
