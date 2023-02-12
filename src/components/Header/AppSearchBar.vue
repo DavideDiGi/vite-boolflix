@@ -9,19 +9,10 @@ export default {
         }
     },
     methods: {
-        // updateSelect(element) {
-        // axios
-        //     .get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${element}`)
-        //     .then((response) => {
-        //         this.store.archetypeChosen = response.data.data;
-        //         console.log('archetype scelta array', response.data.data);
-        //     });
 
     }
 }
-        // findMovie() {
 
-        // }
 
 
 </script>

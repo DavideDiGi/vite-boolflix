@@ -15,10 +15,14 @@ export default {
     },
     methods: {
         SearchEvent() {
-            let url = 'https://api.themoviedb.org/3/search/movie';
+            this.SearchSource('movie');
+            this.SearchSource('tv');
+        },
+        SearchSource(type) {
+            let url = 'https://api.themoviedb.org/3/search/';
             console.log('inputText:', store.inputText)
 
-            axios.get(url, {
+            axios.get(url + type, {
                 params: {
                     api_key: 'e05a29e70998f37483213e63a793a9c5',
                     query: store.inputText,
@@ -28,7 +32,12 @@ export default {
                 .then((response) => {
                     console.log(response.data.results);
 
-                    store.movies = response.data.results;
+                    if (type == 'movie') {
+                        store.movies = response.data.results;
+                    }
+                    else {
+                        store.series = response.data.results;
+                    }
                 });
         }
     }
