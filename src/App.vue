@@ -1,5 +1,4 @@
 <script>
-// import axios from 'axios';
 import { store } from './store'
 
 import AppHeader from './components/Header/AppHeader.vue'
@@ -22,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <div class="container bg-secondary vh-100 p-0">
+  <div class="container-fluid bg-secondary vh-100 p-0">
     <AppHeader />
 
     <AppMain />

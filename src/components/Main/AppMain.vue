@@ -17,41 +17,30 @@ export default {
 </script>
 
 <template>
-    <div class="bg-dark">
+    <main class="bg-dark">
+        <!-- FILM -->
+        <h2 class="text-white pt-3 ps-4 w-100">Film trovati:</h2>
 
-        <h2>Film:</h2>
-        <div class="card-container">
-            <!-- <div class="card"> -->
+        <div class="card-container mt-3">
             <AppCard v-for="movie in store.movies" :element="movie" />
-            <!-- </div> -->
+        </div>
+        <!-- SERIE TV -->
+        <h2 class="text-white pt-3 ps-4 w-100">Serie TV trovate:</h2>
+
+        <div class="card-container mt-3">
+            <AppCard v-for="serie in store.series" :element="serie" />
         </div>
 
-        <!-- <h2>Serie TV:</h2>
-        <div>
-            <AppCard v-for="serie in store.series" :element="serie" />
-        </div> -->
-
-    </div>
+    </main>
 </template>
 
-<style lang="scss" scoped>
-.bg-dark {
-    height: calc(100% - 70px);
-    display: flex;
-
+<style lang="scss" >
+main {
     .card-container {
-        // width: 20%;
-        height: 100%;
-
-        .card {
-            height: 100%;
-            // float: left;
-            // min-height: 512px;
-            // background-color: black;
-            // border: 1px solid white;
-
-
-        }
+        min-height: 513px;
+        display: flex;
+        overflow-x: auto;
+        position: relative;
     }
 }
 </style>

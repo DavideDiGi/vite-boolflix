@@ -70,18 +70,28 @@ export default {
 
 <template>
 
-    <h4><em>Titolo: </em>{{ element.title }} || {{ element.name }} |</h4>
-    <h5><em> Titolo originale: </em>{{ element.original_title }} || {{ element.original_name }} |</h5>
-    <img class="poster" :src="urlsAssemble(element.poster_path)" :alt="element.title">
-    <br>
-    <br>
-    <span class="ms-2"><em> Lingua: </em>{{ element.original_language }} </span>
-    <img class="ms-1 flag" :src="generateFlag(element.original_language)" alt="flag">
-    <span><em> Voto: </em></span>
-    <span v-for="star in voteChanger()"> &#9733; </span>
-    <span v-for="star in (5 - voteChanger())"> &#9734; </span>
+    <div class="card text-white ">
+        <!-- copertina film -->
+        <img class=" poster" :src="urlsAssemble(element.poster_path)" :alt="element.title">
+        <!-- scheda overlay con informazioni -->
+        <div class="overlay px-3 pt-4">
 
-    <hr>
+            <div><strong>Titolo: </strong>{{ element.title }} {{ element.name }}</div>
+            <div><strong>Titolo originale: </strong>{{ element.original_title }} {{ element.original_name }}</div>
+            <span><strong> Lingua: </strong>{{ element.original_language }} </span>
+            <img class="ms-1 flag" :src="generateFlag(element.original_language)" alt="flag">
+            <!-- recensioni -->
+            <div class="vote d-flex">
+
+                <div><strong> Voto: </strong></div>
+                <div class="ms-1" v-for="star in voteChanger()"> &#9733; </div>
+                <div class="ms-1" v-for="star in (5 - voteChanger())"> &#9734; </div>
+
+            </div>
+            <!-- overview -->
+            <div><strong>Trama:</strong> {{ element.overview }} </div>
+        </div>
+    </div>
 
 </template>
 
@@ -90,14 +100,60 @@ em {
     color: orange;
 }
 
-.flag {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-}
 
-.poster {
-    width: 100%;
-    // height: 100%;
+.card {
+    min-height: 100%;
+    margin-left: 2px;
+    // float: left;
+    // min-height: 512px;
+    min-width: 342px;
+    background-color: black;
+    // background-image: url(element.poster_path);
+    // border: 1px solid white;
+
+    &:hover>.overlay {
+        display: block;
+        transition: 3s;
+    }
+
+    .card:hover>h2 {
+        display: none;
+    }
+
+    &:first-of-type {
+        margin-left: 25px;
+    }
+
+    img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .overlay {
+
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+        border: 1px solid white;
+        overflow-y: auto;
+        display: none;
+
+        strong {
+            color: red;
+        }
+
+
+        .flag {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .vote {
+            color: gold;
+        }
+    }
+
 }
 </style>
